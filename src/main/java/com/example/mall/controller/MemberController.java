@@ -37,18 +37,19 @@ public class MemberController {
         }
         return "signup";
     }
+
     @GetMapping("/member/login")
     public String loginForm() {
         return "login";
     }
 
     @PostMapping("/member/login")
-    public String login(String email, String password, HttpSession session){
-        System.out.println(email+password);
+    public String login(String email, String password, HttpSession session) {
+        System.out.println(email + password);
         MemberDTO loginMember = memberService.loginMember(email, password);
         System.out.println(loginMember);
 
-        if(loginMember!=null){
+        if (loginMember != null) {
             session.setAttribute("email", email);
 
             session.setAttribute("id", loginMember.getId());
@@ -60,5 +61,5 @@ public class MemberController {
     }
 
 
-
+}
 
