@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>장바구니</title>
+</head>
+<body>
+    <div>
+        <p th:each="cartItem : ${cartItem}"></p>
+        <p th:text="${cartItem.product_id}"></p>
+        <p th:text="${cartItem.id}"></p>
+        <p th:text="${cartItem.quantity}"></p>
+    </div>
+</body>
+</html>

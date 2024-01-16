@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>메인</title>
+</head>
+<body>
+<h2>상품 목록</h2>  <div th:each=" item : ${product}">
+    <div>
+        <div th:text="${item.product_id}">
+        </div>
+        <div>
+            <p th:text="${item.image}"></p>
+            <h5 th:text="${item.name}"></h5>
+            <p th:text="${item.price}"></p>
+            <a th:href="@{/product/{product_id}(product_id=${item.product_id})}">물건 보러가기</a>
+            <br>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
