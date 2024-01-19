@@ -9,7 +9,7 @@ public class ProductDTO {
     private String image;
     private String description;
 
-    public ProductDTO( int product_id,String name, int price,  String image, String description) {
+    public ProductDTO(int product_id,String name, int price,  String image, String description) {
         this.product_id = product_id;
         this.name = name;
         this.price = price;

@@ -7,4 +7,11 @@
         INSERT INTO cart (member_id, product_id, quantity) VALUES (#{member_id},#{product_id},#{quantity})
     </insert>
 
+    <select id = "selectItem" resultType="com.example.mall.dto.CartDTO">
+        SELECT * FROM cart WHERE member_id = #{member_id} AND product_id = #{product_id}
+    </select>
+
+    <update id ="updateQuantity" parameterType="com.example.mall.dto.CartDTO">
+        UPDATE cart SET quantity = #{quantity} WHERE member_id = #{member_id} AND product_id = #{product_id}
+    </update>
 </mapper>

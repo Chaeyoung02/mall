@@ -44,6 +44,7 @@ public class MemberController {
     }
 
     @PostMapping("/member/login")
+
     public String login(String email, String password, HttpSession session) {
         System.out.println(email + password);
         MemberDTO loginMember = memberService.loginMember(email, password);
@@ -54,7 +55,6 @@ public class MemberController {
 
             session.setAttribute("id", loginMember.getId());
 
-            System.out.println(session.getAttribute("id"));
             return "redirect:/main";
         }
         return "login";

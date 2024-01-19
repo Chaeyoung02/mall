@@ -4,11 +4,11 @@ import lombok.*;
 
 @Data
 public class MemberDTO  {
-    private int id;
+    private Integer id;
     private String email;
     private String username;
     private String password;
-    public MemberDTO(int id, String email, String password, String username) {
+    public MemberDTO(Integer id, String email, String password, String username) {
         this.id =id;
         this.username = username;
         this.email = email;
@@ -16,11 +16,11 @@ public class MemberDTO  {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getUsername() {
