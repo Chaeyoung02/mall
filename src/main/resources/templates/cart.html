@@ -6,10 +6,17 @@
 </head>
 <body>
     <div>
-        <p th:each="cartItem : ${cartItem}"></p>
-        <p th:text="${cartItem.product_id}"></p>
-        <p th:text="${cartItem.id}"></p>
-        <p th:text="${cartItem.quantity}"></p>
+        <h2>장바구니 목록</h2>
+        <tr th:each="cartlist : ${cartlist}">
+            <td th:text ="${cartlist.quantity}"></td>
+            <td th:text ="${cartlist.productName}"></td>
+            <td th:text ="${cartlist.image}"></td>
+
+
+    </tr>
+
+
     </div>
 </body>
 </html>
+//리스트 부분 체크

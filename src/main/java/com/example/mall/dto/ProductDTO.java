@@ -1,6 +1,10 @@
 package com.example.mall.dto;
 
 import jdk.jshell.execution.JdiExecutionControl;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
 
 public class ProductDTO {
     private int product_id;
@@ -9,7 +13,7 @@ public class ProductDTO {
     private String image;
     private String description;
 
-    public ProductDTO(int product_id,String name, int price,  String image, String description) {
+    public ProductDTO(int product_id, String name, int price,  String image, String description) {
         this.product_id = product_id;
         this.name = name;
         this.price = price;

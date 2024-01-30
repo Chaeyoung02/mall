@@ -3,7 +3,6 @@ package com.example.mall.dto;
 public class CartDTO {
     private int cartId;
     private int member_id;
-
     private int product_id;
 
     private int quantity;

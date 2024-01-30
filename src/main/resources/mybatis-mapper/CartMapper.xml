@@ -14,4 +14,15 @@
     <update id ="updateQuantity" parameterType="com.example.mall.dto.CartDTO">
         UPDATE cart SET quantity = #{quantity} WHERE member_id = #{member_id} AND product_id = #{product_id}
     </update>
+
+    <select id = "selectCartList" parameterType="int" resultType="com.example.mall.dto.CartItem">
+        SELECT quantity,
+               productName,
+            image
+        FROM cart c
+                 INNER JOIN product p ON c.product_id = p.id
+        WHERE c.member_id = #{memberId}
+    </select>
+
+
 </mapper>

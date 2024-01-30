@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductMapper {
     List<ProductDTO> selectProduct();
     ProductDTO selectProductId(int product_id);
+    List<ProductDTO> selectMember(int member_id);
 }

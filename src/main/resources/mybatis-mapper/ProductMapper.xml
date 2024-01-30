@@ -11,5 +11,12 @@
         SELECT * from product WHERE id =#{product_id}
     </select>
 
+    <select id="selectMember" resultType="com.example.mall.dto.ProductDTO">
+        SELECT productName, image
+        FROM cart c
+                 INNER JOIN product p ON c.product_id = p.id
+        WHERE c.member_id = #{memberId}
+    </select>
+
 </mapper>
 

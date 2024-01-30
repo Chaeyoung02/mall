@@ -1,19 +1,24 @@
 package com.example.mall.controller;
 
 
-import com.example.mall.dto.CartDTO;
-import com.example.mall.dto.MemberDTO;
+import com.example.mall.dto.*;
 import com.example.mall.service.CartService;
 import com.example.mall.service.MemberService;
+import com.example.mall.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
-
+@Slf4j
 @Controller
 public class CartController {
     @Autowired
@@ -22,6 +27,10 @@ public class CartController {
 
     @Autowired
     CartService cartService;
+
+
+    @Autowired
+    ProductService productService;
 
     @PostMapping("/product/cart/{product_id}")
     public String addCart(@PathVariable int product_id, @RequestParam int quantity, HttpSession session){
@@ -37,6 +46,7 @@ public class CartController {
 
         System.out.println(email);
 
+
         if(checkMember != null){
             CartDTO cartDTO = new CartDTO();
             cartDTO.setMember_id(member_id);
@@ -44,9 +54,34 @@ public class CartController {
             cartDTO.setQuantity(quantity);
             cartService.addCart(cartDTO);
             System.out.print(cartDTO);
-            return "redirect:/main";
+
         }
-        return "redirect:/";
+        return"redirect:/main";
     }
 
+//    @GetMapping("/product/cartList")
+//    public String viewCart(HttpSession session, Model model){
+//        int member_id = (int) session.getAttribute("id");
+//
+//        if(session.getAttribute("id") != null) {
+//            System.out.println(member_id);
+//            List<CartDTO> cartItem = cartService.selectCartList(member_id);
+//            model.addAttribute("cartItem", cartItem);
+//
+//        }
+//        return "cart";
+//
+//    }
+    @GetMapping("/product/cartList")
+    public String viewCart(HttpSession session, Model model){
+        int member_id = (int)session.getAttribute("id");
+
+
+        if(session.getAttribute("id") != null) {
+            List<CartItem> cartList = cartService.selectCartList(member_id);
+            model.addAttribute("cartlist", cartList);
+
+        }
+        return "cart";
+    }
 }

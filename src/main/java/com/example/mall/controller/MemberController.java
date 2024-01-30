@@ -44,7 +44,6 @@ public class MemberController {
     }
 
     @PostMapping("/member/login")
-
     public String login(String email, String password, HttpSession session) {
         System.out.println(email + password);
         MemberDTO loginMember = memberService.loginMember(email, password);

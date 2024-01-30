@@ -20,4 +20,9 @@ public class ProductService {
      public ProductDTO selectProductId(int product_id) {
          return productMapper.selectProductId(product_id);
      }
+
+
+    public List<ProductDTO> selectMember(int member_id) {
+        return productMapper.selectMember(member_id);
+    }
 }

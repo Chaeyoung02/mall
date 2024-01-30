@@ -6,7 +6,10 @@
     <title>메인</title>
 </head>
 <body>
-<h2>상품 목록</h2>  <div th:each=" item : ${product}">
+<h2>상품 목록</h2>
+<a href="/product/cartList" >장바구니</a>
+
+<div th:each=" item : ${product}">
     <div>
         <div th:text="${item.product_id}">
         </div>
@@ -15,6 +18,7 @@
             <h5 th:text="${item.name}"></h5>
             <p th:text="${item.price}"></p>
             <a th:href="@{/product/{product_id}(product_id=${item.product_id})}">물건 보러가기</a>
+
             <br>
 
 
