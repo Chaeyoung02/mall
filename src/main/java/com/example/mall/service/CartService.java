@@ -38,6 +38,9 @@ public class CartService {
         return cartRSVo;
 
     }
+    public void deleteItem(int member_id){
+        cartMapper.deleteItem(member_id);
+    }
 
 
 //    public List<CartDTO> selectCartList(int member_id){

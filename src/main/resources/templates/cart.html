@@ -11,11 +11,14 @@
             <td th:text ="${cartlist.quantity}"></td>
             <td th:text ="${cartlist.productName}"></td>
             <td th:text ="${cartlist.image}"></td>
+            <br>
+        </tr>
 
+        <form th:action="@{/deleteItem}" method ="post">
+            <button type="submit">삭제</button>
+        </form>
 
-    </tr>
-
-
+        <a href="/product/cart/">상품 목록</a>
     </div>
 </body>
 </html>

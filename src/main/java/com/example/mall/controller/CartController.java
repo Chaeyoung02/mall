@@ -84,4 +84,16 @@ public class CartController {
         }
         return "cart";
     }
+
+    @PostMapping("/deleteItem")
+    public String deleteItem(HttpSession session) {
+        int member_id = (int)session.getAttribute("id");
+
+        cartService.deleteItem(member_id);
+        //product_id 별 삭제 기능 추가
+
+        return "cart";
+    }
+
+    //수량수정
 }

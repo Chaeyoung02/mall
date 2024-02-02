@@ -16,5 +16,7 @@ public interface CartMapper {
 
     List<CartItem>  selectCartList(int member_id);
 
+    void deleteItem(int member_id);
+
 //    List<CartDTO> selectCartList(int member_id);
 }
